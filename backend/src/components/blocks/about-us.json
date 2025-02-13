@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_blocks_about_uses",
+  "info": {
+    "displayName": "About Us",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "employee": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.employee-info"
+    },
+    "cta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.link"
+    }
+  }
+}
