@@ -1,21 +1,19 @@
 import { getHomePage } from "@/data/loaders";
-import variables from "../styles/variables.module.scss";
+// import variables from "../styles/variables.module.scss";
 import { notFound } from "next/navigation";
+import HeroSection from "@/components/HeroSection";
 async function loader() {
   const data = await getHomePage();
   if (!data) notFound();
-  console.log(data);
-  return { ...data.data.attributes };
+  return { ...data.data };
 }
-export default async function Home() {
+export default async function HomeRoute() {
   const data = await loader();
+  const blocks = data?.blocks || [];
   console.log(data);
   return (
     <div className="text-center">
-      <h1 style={{ color: variables.primaryColor }}>Hello, Next.js!</h1>
-      <h2>Xubrtech</h2>
-      <h1>{data.title}</h1>
-      <p>{data.description}</p>
+      <HeroSection {...blocks[0]} />
     </div>
   );
 }

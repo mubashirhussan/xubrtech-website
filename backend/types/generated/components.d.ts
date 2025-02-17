@@ -18,12 +18,13 @@ export interface BlocksAboutUs extends Schema.Component {
 export interface BlocksHeroSection extends Schema.Component {
   collectionName: 'components_blocks_hero_sections';
   info: {
+    description: '';
     displayName: 'Hero Section';
   };
   attributes: {
     cta: Attribute.Component<'elements.link'>;
     heading: Attribute.String;
-    image: Attribute.Media<'images'>;
+    images: Attribute.Media<'images', true>;
   };
 }
 

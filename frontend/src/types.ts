@@ -37,11 +37,12 @@ export type Block = HeroSectionProps | InfoBlockProps;
 export interface HeroSectionProps extends Base<"blocks.hero-section"> {
   theme: "turquoise" | "orange";
   heading: string;
-  image: ImageProps;
+  images: ImageProps[];
   cta?: LinkProps;
   logo?: LogoProps;
   author?: string;
   darken?: boolean;
+  subheading?: string;
 }
 
 export interface InfoBlockProps extends Base<"blocks.about-us"> {

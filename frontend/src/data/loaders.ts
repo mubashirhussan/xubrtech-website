@@ -1,5 +1,5 @@
 import { fetchAPI } from "@/utils/fetch-api";
-import { getStrapiUrl } from "@/utils/get-strapi-url";
+import { getStrapiURL } from "@/utils/get-strapi-url";
 import qs from "qs";
 const homePageQuery = qs.stringify({
   populate: {
@@ -7,7 +7,7 @@ const homePageQuery = qs.stringify({
       on: {
         "blocks.hero-section": {
           populate: {
-            image: {
+            images: {
               fields: ["url", "alternativeText"],
             },
             cta: true,
@@ -26,7 +26,7 @@ const homePageQuery = qs.stringify({
   },
 });
 export async function getHomePage() {
-  const BASE_URL = getStrapiUrl();
+  const BASE_URL = getStrapiURL();
   const path = "/api/home-page";
   const url = new URL(path, BASE_URL);
   url.search = homePageQuery;
