@@ -12,7 +12,7 @@ export default function Footer() {
         {/* Logo Section */}
         <div>
           <Image
-            src="/Xubrtech.jpg" // Replace with your logo path
+            src="/Xubrtech.jpg"
             alt="Xubrtech Logo"
             width={150}
             height={50}
@@ -94,7 +94,7 @@ export default function Footer() {
             ].map((image, index) => (
               <Image
                 key={index}
-                src={`/${image}`} // Replace with your gallery image paths
+                src={`/${image}`}
                 alt={`Gallery Image ${index + 1}`}
                 width={100}
                 height={100}
