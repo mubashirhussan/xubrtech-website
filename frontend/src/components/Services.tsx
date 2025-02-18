@@ -3,14 +3,14 @@ import { Code, Rocket, ShieldCheck, PenTool, BarChart3 } from "lucide-react";
 
 export default function Services() {
   const services = [
-    { title: "Product Development", icon: <Code size={64} strokeWidth={1} /> },
-    { title: "Digital Marketing", icon: <Rocket size={64} strokeWidth={1} /> },
+    { title: "Product Development", icon: <Code size={44} strokeWidth={1} /> },
+    { title: "Digital Marketing", icon: <Rocket size={44} strokeWidth={1} /> },
     {
       title: "Security System",
-      icon: <ShieldCheck size={64} strokeWidth={1} />,
+      icon: <ShieldCheck size={44} strokeWidth={1} />,
     },
-    { title: "UI/UX Designing", icon: <PenTool size={64} strokeWidth={1} /> },
-    { title: "Data Analysis", icon: <BarChart3 size={64} strokeWidth={1} /> },
+    { title: "UI/UX Designing", icon: <PenTool size={44} strokeWidth={1} /> },
+    { title: "Data Analysis", icon: <BarChart3 size={44} strokeWidth={1} /> },
   ];
 
   return (

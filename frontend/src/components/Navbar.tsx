@@ -20,7 +20,7 @@ export default function Navbar() {
             height={62}
           /> */}
           <span className="font-extrabold text-3xl tracking-wide ">
-            <span className="text-[#ffaa17] uppercase">X</span>uber
+            <span className="text-[#ffaa17] uppercase">X</span>ubr
             <span className="">tech</span>
           </span>
         </Link>
@@ -38,6 +38,16 @@ export default function Navbar() {
               </a>
             )
           )}
+
+          <Link
+            href={"#"}
+            target={"_self"}
+            className="relative inline-block ms-[30px] py-[10px] px-[40px] text-[11px] leading-[24px] font-bold tracking-[0.1em] uppercase text-[#222429] bg-[#ffaa17] overflow-hidden transition-all duration-500 ease-in-out before:absolute before:top-[-100%] before:left-0 before:w-full before:h-full before:bg-[#222429] before:transition-all before:duration-500 before:ease-in-out hover:text-white hover:before:top-0"
+          >
+            <span className="relative z-10 transition-colors duration-300 ease-in-out">
+              GET SOLUTION
+            </span>
+          </Link>
         </div>
 
         {/* Mobile Menu Button */}
