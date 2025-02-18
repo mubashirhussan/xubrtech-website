@@ -11,6 +11,9 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --theme-color1: #222429;
+    --theme-color2: #ffaa17;
+    --theme-color3: #f4f5f8;
   }
 }
 

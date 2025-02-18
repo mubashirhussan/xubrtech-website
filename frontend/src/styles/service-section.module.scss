@@ -1,0 +1,21 @@
+.services-heading {
+  position: relative;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #ffaa17;
+  margin-bottom: 10px;
+
+  &::before {
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    height: 2px;
+    width: 40px;
+    margin-left: 10px;
+    margin-top: -2px;
+    background: #ffaa17;
+    content: "";
+  }
+}

@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import HeroSection from "@/components/HeroSection";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Services from "@/components/Services";
 async function loader() {
   const data = await getHomePage();
   if (!data) notFound();
@@ -17,6 +18,7 @@ export default async function HomeRoute() {
     <div className="text-center">
       <Navbar />
       <HeroSection {...blocks[0]} />
+      <Services />
       <Footer />
     </div>
   );

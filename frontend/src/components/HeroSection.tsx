@@ -45,7 +45,7 @@ const HeroSection = ({
           {subheading || "Solutions for your businesses"}
         </p>
 
-        <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold mt-2 leading-tight">
+        <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold mt-2 leading-tight">
           {heading}
         </h1>
 

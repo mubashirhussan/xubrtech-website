@@ -12,14 +12,17 @@ export default function Navbar() {
       <div className="max-w-[1200px] mx-auto flex items-center justify-between px-10 py-4">
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-2">
-          <Image
+          {/* <Image
             src="/Xubrtech.jpg" // Replace with your logo path
             alt="Logo"
             className="h-[62px] w-auto"
             width={62}
             height={62}
-          />
-          <span className="font-bold text-lg text-gray-800">Xubertech</span>
+          /> */}
+          <span className="font-extrabold text-3xl tracking-wide ">
+            <span className="text-[#ffaa17] uppercase">X</span>uber
+            <span className="">tech</span>
+          </span>
         </Link>
 
         {/* Desktop Menu */}
@@ -29,7 +32,7 @@ export default function Navbar() {
               <a
                 key={item}
                 href={`/${item.toLowerCase()}`}
-                className="text-gray-600 hover:text-orange-500 transition"
+                className="text-gray-600 hover:text-[#ffaa17] transition"
               >
                 {item}
               </a>
@@ -79,7 +82,7 @@ export default function Navbar() {
                 <a
                   key={item}
                   href={`/${item.toLowerCase()}`}
-                  className="block text-lg font-medium hover:text-orange-500 transition"
+                  className="block text-lg font-medium hover:text-[#ffaa17] transition"
                 >
                   {item}
                 </a>
@@ -90,11 +93,11 @@ export default function Navbar() {
           {/* Contact Info */}
           <div className="mt-auto px-6 text-center space-y-4">
             <p>CALL NOW</p>
-            <a href="tel:+92880098670" className="text-orange-500">
+            <a href="tel:+92880098670" className="text-[#ffaa17]">
               +92 (8800) - 98670
             </a>
             <p>SEND EMAIL</p>
-            <a href="mailto:help@company.com" className="text-orange-500">
+            <a href="mailto:help@company.com" className="text-[#ffaa17]">
               help@company.com
             </a>
           </div>
