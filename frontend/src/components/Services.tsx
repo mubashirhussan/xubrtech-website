@@ -14,7 +14,7 @@ export default function Services() {
   ];
 
   return (
-    <section className="pt-[120px] pb-[90px] bg-gray-50">
+    <section className="pt-[120px] pb-[90px] ">
       <div className="max-w-6xl mx-auto text-center">
         <h3 className="services-heading">Services We're Offering</h3>
         <h2 className="text-5xl font-semibold text-gray-900 mb-[50px] mt-2">
