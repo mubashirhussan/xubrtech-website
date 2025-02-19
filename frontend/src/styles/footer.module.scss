@@ -1,0 +1,80 @@
+.footer {
+  position: relative;
+  text-align: left;
+  background-color: #222429;
+  padding: 80px 20px 50px; // Adjusted padding for mobile
+  background-image: url("/footer-img.jpg");
+  background-size: cover;
+  background-position: center;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(34, 36, 41, 0.9);
+  }
+
+  .container {
+    position: relative;
+    max-width: 1200px; // Set max width for responsiveness
+    width: 100%;
+    margin: auto; // Centers the container
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 1.5rem;
+    padding: 0 20px; // Ensures content doesn’t touch edges on smaller screens
+
+    @media (min-width: 576px) {
+      // Small screens (tablets)
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    @media (min-width: 768px) {
+      // Medium screens
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    @media (min-width: 1024px) {
+      // Large screens
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+
+  .widget-title {
+    position: relative;
+    font-size: 1.1rem; // Slightly smaller for better scaling
+    font-weight: bold;
+    color: white;
+    margin-bottom: 2rem;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -14px;
+      height: 2px;
+      width: 40px;
+      background-color: #ffaa17;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 40px;
+      bottom: -14px;
+      height: 2px;
+      width: 200px; // Adjusted for better scaling
+      background-color: #ffffff1a;
+    }
+  }
+
+  .footer-bottom {
+    position: relative;
+    border-top: 1px solid #444;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #bbb;
+  }
+}

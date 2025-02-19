@@ -5,6 +5,8 @@ import HeroSection from "@/components/HeroSection";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Services from "@/components/Services";
+import ContactAndFAQ from "@/components/ContactAndFAQ";
+import Testimonials from "@/components/Testimonials";
 async function loader() {
   const data = await getHomePage();
   if (!data) notFound();
@@ -19,6 +21,8 @@ export default async function HomeRoute() {
       <Navbar />
       <HeroSection {...blocks[0]} />
       <Services />
+      <Testimonials />
+      <ContactAndFAQ />
       <Footer />
     </div>
   );

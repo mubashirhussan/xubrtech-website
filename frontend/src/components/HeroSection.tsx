@@ -21,7 +21,7 @@ const HeroSection = ({
       {images && images.length > 0 && (
         <Swiper
           modules={[Autoplay]}
-          autoplay={{ delay: 5000, disableOnInteraction: false }}
+          autoplay={{ delay: 3000, disableOnInteraction: false }}
           loop
           className="absolute top-0 left-0 w-full h-full -z-10"
         >

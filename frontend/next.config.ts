@@ -5,7 +5,9 @@ const nextConfig: NextConfig = {
   sassOptions: {
     includePaths: ["./src/styles"],
   },
+
   images: {
+    domains: ["randomuser.me"],
     remotePatterns: [
       {
         protocol: "http",

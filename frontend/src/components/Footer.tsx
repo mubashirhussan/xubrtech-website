@@ -1,115 +1,162 @@
 "use client";
+import {
+  Mail,
+  Phone,
+  Facebook,
+  Twitter,
+  Instagram,
+  CircleParking,
+} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
+// Footer data inside component
+const footerData = {
+  logo: "/Xubrtech.jpg",
+  description:
+    "Desires to obtain pain of itself, because it is pain, but occasionally circumstances.",
+  socialLinks: [
+    { name: "facebook", url: "https://facebook.com" },
+    { name: "twitter", url: "https://twitter.com" },
+    { name: "pinterest", url: "https://pinterest.com" },
+    { name: "instagram", url: "https://instagram.com" },
+  ],
+  exploreLinks: [
+    { name: "About Company", url: "/about-company" },
+    { name: "Meet the Team", url: "/meet-the-team" },
+    { name: "News & Media", url: "/news-media" },
+    { name: "Our Projects", url: "/our-projects" },
+    { name: "Contact", url: "/contact" },
+  ],
+  contact: {
+    address:
+      "College Road, Sector C-1 Block C 2 Phase 1 Johar Town, Lahore, 54600",
+    email: "Xubrtech.com",
+    phone: "+92 316 0140154",
+  },
+  galleryImages: [
+    "/gallery1.jpg",
+    "/gallery2.jpg",
+    "/gallery3.jpg",
+    "/gallery4.jpg",
+  ],
+  copyright: "© Copyright 2023 by Xubrtech.com",
+};
+
+// Social icons mapping
+const socialIcons = {
+  facebook: (
+    <Facebook className="w-5 h-5 text-gray-400 hover:text-white transition" />
+  ),
+  twitter: (
+    <Twitter className="w-5 h-5 text-gray-400 hover:text-white transition" />
+  ),
+  pinterest: (
+    <CircleParking className="w-5 h-5 text-gray-400 hover:text-white transition" />
+  ),
+  instagram: (
+    <Instagram className="w-5 h-5 text-gray-400 hover:text-white transition" />
+  ),
+};
+
 export default function Footer() {
   return (
-    <footer className="relative text-gray-300 bg-gray-900 bg-[url('/footer-img.jpg')] bg-cover bg-center px-0 py-[110px] pb-[65px]">
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-[#222429] opacity-90 z-0"></div>
-
-      <div className="relative container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 px-6 z-10">
-        {/* Logo Section */}
-        <div>
-          <Image
-            src="/Xubrtech.jpg"
-            alt="Xubrtech Logo"
-            width={150}
-            height={50}
-            className="mb-4"
-          />
-          <p className="text-sm leading-relaxed">
-            Desires to obtain pain of itself, because it is pain, but
-            occasionally circumstances.
-          </p>
-          <div className="flex items-center space-x-4 mt-4">
-            {["facebook", "twitter", "pinterest", "instagram"].map((icon) => (
-              <a
-                key={icon}
-                href={`https://${icon}.com`}
-                className="text-gray-400 hover:text-white transition"
-              >
-                <i className={`fab fa-${icon} text-lg`}></i>
-              </a>
-            ))}
-          </div>
-        </div>
-
-        {/* Explore Section */}
-        <div>
-          <h3 className="font-bold text-lg text-white mb-4">Explore</h3>
-          <ul className="space-y-2">
-            {[
-              "About Company",
-              "Meet the Team",
-              "News & Media",
-              "Our Projects",
-              "Contact",
-            ].map((item) => (
-              <li key={item}>
-                <Link
-                  href={`/${item.toLowerCase().replace(/ /g, "-")}`}
-                  className="hover:text-white transition"
+    <footer className="footer">
+      <div className="max-w-[1200px] mx-auto px-6 relative">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 z-10">
+          {/* Logo Section */}
+          <div>
+            <Image
+              src={footerData.logo}
+              alt="Company Logo"
+              width={150}
+              height={50}
+              className="mb-4"
+            />
+            <p className="text-base leading-relaxed text-[#8c8f94]">
+              {footerData.description}
+            </p>
+            <div className="flex items-center space-x-4 mt-4">
+              {footerData.socialLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  {item}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
+                  {socialIcons[link.name as keyof typeof socialIcons]}
+                </a>
+              ))}
+            </div>
+          </div>
 
-        {/* Contact Section */}
-        <div>
-          <h3 className="font-bold text-lg text-white mb-4">Contact</h3>
-          <address className="not-italic space-y-2">
-            <p>66 Road Broklyn Street, 600 New York, USA</p>
-            <p>
-              <a
-                href="mailto:needhelp@company.com"
-                className="text-orange-500 hover:text-white transition"
-              >
-                needhelp@company.com
-              </a>
-            </p>
-            <p>
-              <a
-                href="tel:+926668880000"
-                className="text-orange-500 hover:text-white transition"
-              >
-                +92 666 888 0000
-              </a>
-            </p>
-          </address>
-        </div>
+          {/* Explore Section */}
+          <div>
+            <h3 className="widget-title">Explore</h3>
+            <ul className="space-y-4 text-[#8c8f94]">
+              {footerData.exploreLinks.map((item) => (
+                <li key={item.name}>
+                  <Link href={item.url} className="hover:text-white transition">
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-        {/* Gallery Section */}
-        <div>
-          <h3 className="font-bold text-lg text-white mb-4">Gallery</h3>
-          <div className="grid grid-cols-3 gap-2">
-            {[
-              "gallery1.jpg",
-              "gallery2.jpg",
-              "gallery3.jpg",
-              "gallery4.jpg",
-            ].map((image, index) => (
-              <Image
-                key={index}
-                src={`/${image}`}
-                alt={`Gallery Image ${index + 1}`}
-                width={100}
-                height={100}
-                className="object-cover rounded-sm"
-              />
-            ))}
+          {/* Contact Section */}
+          <div>
+            <h3 className="widget-title">Contact</h3>
+            <address className="not-italic space-y-4 text-[#8c8f94]">
+              <p>{footerData.contact.address}</p>
+              <div className="flex space-x-2">
+                <Phone className="w-6 h-6 text-[#ffaa17]" />
+                <p>
+                  <a
+                    href={`tel:${footerData.contact.phone}`}
+                    className="hover:text-white transition"
+                  >
+                    {footerData.contact.phone}
+                  </a>
+                </p>
+              </div>
+
+              <div className="flex space-x-2">
+                <Mail className="w-6 h-6 text-[#ffaa17]" />
+                <p>
+                  <a
+                    href={`mailto:${footerData.contact.email}`}
+                    className="hover:text-white transition"
+                  >
+                    {footerData.contact.email}
+                  </a>
+                </p>
+              </div>
+            </address>
+          </div>
+
+          {/* Gallery Section */}
+          <div>
+            <h3 className="widget-title">Gallery</h3>
+            <div className="grid grid-cols-3 gap-2">
+              {footerData.galleryImages.map((image, index) => (
+                <Image
+                  key={index}
+                  src={image}
+                  alt={`Gallery Image ${index + 1}`}
+                  width={100}
+                  height={100}
+                  className="object-cover rounded-sm"
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>
 
       {/* Footer Bottom */}
-      <div className="relative border-t border-gray-700 mt-8 pt-4 z-10">
-        <p className="text-center text-sm">
-          &copy; Copyright 2023 by Company.com
-        </p>
+      <div className="footer-bottom">
+        <p>{footerData.copyright}</p>
       </div>
     </footer>
   );
