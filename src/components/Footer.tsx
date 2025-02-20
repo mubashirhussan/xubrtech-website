@@ -34,12 +34,7 @@ const footerData = {
     email: "Xubrtech.com",
     phone: "+92 316 0140154",
   },
-  galleryImages: [
-    "/gallery1.jpg",
-    "/gallery2.jpg",
-    "/gallery3.jpg",
-    "/gallery4.jpg",
-  ],
+  galleryImages: ["/news-1.jpg", "/news-2.jpg", "/news-3.jpg", "/news-1.jpg"],
   copyright: "© Copyright 2023 by Xubrtech.com",
 };
 
