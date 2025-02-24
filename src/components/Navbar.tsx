@@ -8,8 +8,8 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className="bg-white shadow-md fixed top-0 w-full z-50">
-      <div className="max-w-[1200px] mx-auto flex items-center justify-between px-10 py-4">
+    <nav className="bg-white shadow-md px-6 sm:px-10 py-4 fixed top-0 w-full z-50">
+      <div className="max-w-7xl mx-auto flex items-center justify-between ">
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-2">
           <span className="font-extrabold text-3xl tracking-wide ">
@@ -23,7 +23,7 @@ export default function Navbar() {
           {["Home", "About", "Services", "News", "Contact"].map((item) => (
             <a
               key={item}
-              href={`/${item.toLowerCase()}`}
+              href={`/`}
               className="text-gray-600 hover:text-[#ffaa17] transition"
             >
               {item}
@@ -31,7 +31,7 @@ export default function Navbar() {
           ))}
 
           <Link
-            href={"#"}
+            href={"/"}
             className="relative inline-block ms-[30px] py-[10px] px-[40px] text-[11px] leading-[24px] font-bold tracking-[0.1em] uppercase text-[#222429] bg-[#ffaa17] overflow-hidden transition-all duration-500 ease-in-out before:absolute before:top-[-100%] before:left-0 before:w-full before:h-full before:bg-[#222429] before:transition-all before:duration-500 before:ease-in-out hover:text-white hover:before:top-0"
           >
             <span className="relative z-10 transition-colors duration-300 ease-in-out">
@@ -83,7 +83,7 @@ export default function Navbar() {
           {["Home", "About", "Services", "News", "Contact"].map((item) => (
             <a
               key={item}
-              href={`/${item.toLowerCase()}`}
+              href={`/`}
               className="flex text-lg font-medium hover:text-[#ffaa17] transition"
             >
               {item}

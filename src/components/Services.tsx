@@ -14,10 +14,10 @@ export default function Services() {
   ];
 
   return (
-    <section className="py-8 sm:py-10 px-6 sm:px-10">
-      <div className="max-w-7xl mx-auto text-center px-4">
+    <section className="pb-8 pt-16 sm:pb-10 sm:pt-20 px-6 sm:px-10">
+      <div className="max-w-7xl mx-auto text-center ">
         <h3 className="services-heading">Services We're Offering</h3>
-        <h2 className="text-2xl sm:text-4xl  md:text-5xl font-semibold text-gray-900 mb-10">
+        <h2 className="text-2xl sm:text-4xl md:text-5xl font-semibold text-gray-900 mb-10 sm:mb-14 ">
           We Provide Our Clients <br className="hidden sm:block" /> Best IT
           Services
         </h2>
