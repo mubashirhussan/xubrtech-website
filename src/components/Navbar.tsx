@@ -59,16 +59,8 @@ export default function Navbar() {
           isMenuOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        {/* Close Button */}
-        <button
-          className="absolute top-4 right-4 p-2 text-white"
-          onClick={() => setIsMenuOpen(false)}
-        >
-          <X className="w-8 h-8" />
-        </button>
-
         {/* Logo */}
-        <div className="px-6">
+        <div className="px-6 flex justify-between items-start">
           <Image
             src="/Xubrtech.jpg"
             alt="Logo"
@@ -76,6 +68,13 @@ export default function Navbar() {
             width={48}
             height={48}
           />
+          {/* Close Button */}
+          <button
+            className=" top-4 right-4 p-2 text-white"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            <X className="w-8 h-8" />
+          </button>
         </div>
 
         {/* Navigation Links */}
@@ -102,13 +101,13 @@ export default function Navbar() {
             <div>
               <p className="text-white">CALL NOW</p>
               <a href="tel:+92880098670" className="text-[#ffaa17] font-medium">
-                +92 (8800) - 98670
+                +92 (316) - 0140154
               </a>
             </div>
           </div>
 
           {/* Email Section */}
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center space-x-4">
             {/* Icon */}
             <div>
               <Mail className="w-6 h-6 text-[#ffaa17]" />
@@ -120,7 +119,7 @@ export default function Navbar() {
                 href="mailto:help@company.com"
                 className="text-[#ffaa17] font-medium"
               >
-                help@company.com
+                xubrtech@gmail.com
               </a>
             </div>
           </div>
