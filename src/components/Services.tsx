@@ -26,23 +26,27 @@ export default function Services() {
           {services.map((service, index) => (
             <div
               key={index}
-              className="group cursor-pointer relative overflow-hidden h-full p-6 bg-white text-center shadow-lg border-t-[6px] border-[#ffaa17] transition-all duration-300 ease-in-out
-          before:absolute before:bottom-[-100%] before:left-0 before:w-full before:h-full before:bg-[#222429] before:transition-all before:duration-500 hover:before:bottom-0"
+              className="group cursor-pointer relative overflow-hidden h-full p-6 bg-white text-center shadow-lg border-t-[6px] border-[#ffaa17] transition-all duration-300 ease-in-out 
+        before:absolute before:left-0 before:w-full before:h-full before:bg-[#222429] before:transition-all before:duration-500 
+        before:bottom-0 md:before:bottom-[-100%] md:hover:before:bottom-0"
             >
               {/* Icon Section */}
               <div className="relative z-10 mb-4 flex justify-center">
-                <div className="w-[80px] h-[80px] flex items-center justify-center bg-[#f4f5f8] rounded-full p-4 transition-all duration-300 group-hover:bg-[#ffaa17] group-hover:text-[#222429]">
+                <div
+                  className="w-[80px] h-[80px] flex items-center justify-center  rounded-full p-4 transition-all duration-300 
+          bg-[#ffaa17] text-[#222429] md:bg-[#f4f5f8] md:text-black md:group-hover:bg-[#ffaa17] md:group-hover:text-[#222429]"
+                >
                   {service.icon}
                 </div>
               </div>
 
               {/* Service Title */}
-              <h3 className="relative px-4 z-10 text-lg font-semibold text-gray-900 group-hover:text-white">
+              <h3 className="relative px-4 z-10 text-lg font-semibold text-white md:text-gray-900 md:group-hover:text-white">
                 {service.title}
               </h3>
 
               {/* Description */}
-              <p className="relative z-10 text-gray-600 text-sm mt-2 group-hover:text-gray-300">
+              <p className="relative z-10 text-gray-300 text-sm mt-2 md:text-gray-600 md:group-hover:text-gray-300">
                 Providing solutions for tech businesses
               </p>
             </div>

@@ -76,28 +76,23 @@ const HeroSection = () => {
         {/* CTA Buttons */}
         <div className="mt-6 flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-4">
           <Link
-            href={"#"}
+            href={"/"}
             target={"_self"}
-            className="relative inline-block px-[50px] py-[15px] text-[13px] leading-[24px] font-bold tracking-[0.1em] uppercase text-[#222429] bg-[#ffaa17] overflow-hidden transition-all duration-500 ease-in-out before:absolute before:top-[-100%] before:left-0 before:w-full before:h-full before:bg-[#222429] before:transition-all before:duration-500 before:ease-in-out hover:text-white hover:before:top-0"
+            className="relative inline-block px-[50px] py-[15px] text-[13px] leading-[24px] font-bold tracking-[0.1em] uppercase text-[#222429] bg-[#ffaa17] overflow-hidden transition-all duration-500 ease-in-out 
+    before:top-[-100%] before:left-0 before:w-full before:h-full before:bg-[#222429] before:transition-all before:duration-500 before:ease-in-out hover:text-white hover:before:top-0 
+    md:before:absolute"
           >
             <span className="relative z-10 transition-colors duration-300 ease-in-out">
               {heroData.cta.text}
             </span>
           </Link>
-          {/* <Link
-            href={heroData.cta.href}
-            target={heroData.cta.isExternal ? "_blank" : "_self"}
-            className="relative inline-block px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-bold tracking-wide uppercase text-[#222429] bg-[#ffaa17] rounded-md shadow-lg transition-all duration-500 ease-in-out hover:bg-[#e69b0d] hover:text-white"
-          >
-            {heroData.cta.text}
-          </Link> */}
 
           <button className="flex items-center group text-sm sm:text-base">
-            <span className="h-12 w-12 sm:h-14 sm:w-14 bg-[#222429] flex items-center justify-center mr-3 sm:mr-4 rounded-full transition duration-300 group-hover:bg-white">
+            <span className="h-12 w-12 sm:h-14 sm:w-14 bg-[#222429] flex items-center justify-center mr-3 sm:mr-4 rounded-full transition duration-300 sm:group-hover:bg-white">
               <Play
                 fill="white"
                 size={24}
-                className="transition duration-300 group-hover:fill-black group-hover:scale-110"
+                className="transition duration-300 sm:group-hover:fill-black group-hover:scale-110"
               />
             </span>
 
