@@ -1,7 +1,7 @@
 .question-answer-heading {
   position: relative;
   display: inline-block;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
   text-transform: uppercase;
   color: #ffaa17;
@@ -17,5 +17,11 @@
     margin-top: -2px;
     background: #ffaa17;
     content: "";
+  }
+
+  @media (max-width: 640px) {
+    &::before {
+      display: none;
+    }
   }
 }

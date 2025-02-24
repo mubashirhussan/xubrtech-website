@@ -18,4 +18,10 @@
     background: #ffaa17;
     content: "";
   }
+
+  @media (max-width: 640px) {
+    &::before {
+      display: none;
+    }
+  }
 }

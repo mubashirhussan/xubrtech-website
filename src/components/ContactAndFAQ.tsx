@@ -22,7 +22,8 @@ export default function ContactAndFAQ() {
     },
     {
       question: "How can I find my solutions?",
-      answer: "There are many variations of passages the majority",
+      answer:
+        "There are many variations of passages the majority have suffered alteration in some fo injected humour, or randomised words believable.",
     },
   ];
 
@@ -31,66 +32,56 @@ export default function ContactAndFAQ() {
   };
 
   return (
-    <div className="relative  flex items-center justify-center ">
-      {/* Full-width Background Images */}
-      <div className="absolute inset-0 flex gap-8">
-        {/* Contact Form Background */}
-        <div className="w-1/2 bg-[url('/contactAndFAQ.jpg')] bg-cover bg-center relative">
-          {/* Dark Overlay */}
-          <div className="absolute left-0 top-0 h-full w-full bg-[#222429] opacity-80"></div>
-        </div>
-        {/* FAQ Section Background */}
-        <div className="w-1/2 bg-[url('/contactAndFAQ1.jpg')] bg-cover bg-center"></div>
-      </div>
-
+    <section className="relative flex items-center justify-center py-8 sm:py-10 px-6 sm:px-10">
       {/* Content Wrapper with Max Width */}
-      <div className="relative w-full max-w-[1200px] flex  px-8">
-        {/* Contact Form */}
-        <div className="w-1/2 flex items-start justify-center py-[70px] pr-[70px]">
-          <div className="w-full bg-[#2c2e33] p-[55px] border-t-[6px] border-[#ffaa17] text-left">
-            <h4 className="block text-[12px] text-[#ffaa17] font-bold uppercase tracking-[0.1em] mb-[2px]">
-              Contact Us
-            </h4>
-            <h2 className="text-[34px] text-white font-bold mb-[25px]">
-              Write Email
-            </h2>
-            <form className="space-y-5">
-              <input
-                className="w-full p-3 bg-transparent border-[1px] border-[rgba(255,255,255,0.15)] text-white focus:outline-none focus:border-[#ffaa17]"
-                type="text"
-                placeholder="Your Name"
-              />
-              <input
-                className="w-full p-3 bg-transparent border-[1px] border-[rgba(255,255,255,0.15)] text-white focus:outline-none focus:border-[#ffaa17]"
-                type="email"
-                placeholder="Email Address"
-              />
-
-              <input
-                className="w-full p-3 bg-transparent border-[1px] border-[rgba(255,255,255,0.15)] text-white focus:outline-none focus:border-[#ffaa17]"
-                type="tel"
-                placeholder="Phone Number"
-              />
-              <textarea
-                className="w-full p-3 bg-transparent border-[1px] border-[rgba(255,255,255,0.15)] text-white focus:outline-none focus:border-[#ffaa17]"
-                rows={4}
-                placeholder="Write a Message"
-              ></textarea>
-              <button className=" relative  py-3 px-[40px] text-[12px] leading-[24px] font-bold tracking-[0.1em] uppercase inline-block text-black  hover:bg-yellow-600  bg-[#ffaa17] overflow-hidden transition-all duration-500 ease-in-out before:absolute before:top-[-100%] before:left-0 before:w-full before:h-full before:bg-[#222429] before:transition-all before:duration-500 before:ease-in-out hover:text-white hover:before:top-0">
-                <span className="relative z-10 transition-colors duration-300 ease-in-out">
-                  SEND A MESSAGE
-                </span>
-              </button>
-            </form>
+      <div className="relative w-full max-w-7xl">
+        {/* Grid Layout for Responsive Design */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+          {/* Contact Form */}
+          <div className="flex items-start justify-center  ">
+            <div className="w-full bg-[#2c2e33] p-6 sm:p-10 lg:p-[55px] border-t-[6px] border-[#ffaa17] text-left">
+              <h4 className="text-[12px] text-[#ffaa17] font-bold uppercase tracking-[0.1em] mb-[2px]">
+                Contact Us
+              </h4>
+              <h2 className="text-2xl sm:text-3xl lg:text-[34px] text-white font-bold mb-5">
+                Write Email
+              </h2>
+              <form className="space-y-4 sm:space-y-5">
+                <input
+                  className="w-full p-3 bg-transparent border border-[rgba(255,255,255,0.15)] text-white focus:outline-none focus:border-[#ffaa17]"
+                  type="text"
+                  placeholder="Your Name"
+                />
+                <input
+                  className="w-full p-3 bg-transparent border border-[rgba(255,255,255,0.15)] text-white focus:outline-none focus:border-[#ffaa17]"
+                  type="email"
+                  placeholder="Email Address"
+                />
+                <input
+                  className="w-full p-3 bg-transparent border border-[rgba(255,255,255,0.15)] text-white focus:outline-none focus:border-[#ffaa17]"
+                  type="tel"
+                  placeholder="Phone Number"
+                />
+                <textarea
+                  className="w-full p-3 bg-transparent border border-[rgba(255,255,255,0.15)] text-white focus:outline-none focus:border-[#ffaa17]"
+                  rows={4}
+                  placeholder="Write a Message"
+                ></textarea>
+                <button className="relative py-3 px-10 text-[12px] leading-[24px] font-bold tracking-[0.1em] uppercase inline-block text-black bg-[#ffaa17] hover:bg-yellow-600 overflow-hidden transition-all duration-500 ease-in-out before:absolute before:top-[-100%] before:left-0 before:w-full before:h-full before:bg-[#222429] before:transition-all before:duration-500 before:ease-in-out hover:text-white hover:before:top-0">
+                  <span className="relative z-10 transition-colors duration-300 ease-in-out">
+                    SEND A MESSAGE
+                  </span>
+                </button>
+              </form>
+            </div>
           </div>
-        </div>
 
-        {/* FAQ Section */}
-        <div className="w-1/2  flex text-left">
-          <div className="w-full  bg-opacity-90 py-[70px] ps-[70px] rounded-lg">
-            <h3 className="question-answer-heading"> Questions & Answers</h3>
-
-            <h2 className="text-5xl font-bold mb-10">
+          {/* FAQ Section */}
+          <div className="text-left ">
+            <h3 className="text-lg sm:text-xl font-semibold text-[#ffaa17] question-answer-heading">
+              Questions & Answers
+            </h3>
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold mb-6 lg:mb-10">
               See Frequently Asked Questions
             </h2>
 
@@ -98,19 +89,19 @@ export default function ContactAndFAQ() {
               {faqs.map((faq, index) => (
                 <div key={index} className="">
                   <button
-                    className={`relative w-full p-[20px_20px_20px_30px] flex justify-between items-center text-[18px] leading-[25px] font-bold cursor-pointer transition-all duration-500 border-b border-[#f4f5f8] ${
+                    className={`relative w-full p-4 flex text-left justify-between items-center text-lg font-bold cursor-pointer transition-all duration-500 border-b border-[#f4f5f8] ${
                       openIndex === index
                         ? "bg-[#ffaa17] text-[#222429]"
                         : "bg-white text-[#222429]"
                     }`}
                     onClick={() => toggleFAQ(index)}
                   >
-                    <span className="pr-[70px">{faq.question}</span>
+                    <span className="pr-10">{faq.question}</span>
                     {openIndex === index ? <Minus /> : <Plus />}
                   </button>
 
                   {openIndex === index && (
-                    <div className="block text-[16px] text-[#808287] mb-0 py-[25px] px-[30px] bg-white">
+                    <div className="block text-base text-[#808287] py-5 px-6 bg-white">
                       {faq.answer}
                     </div>
                   )}
@@ -120,6 +111,6 @@ export default function ContactAndFAQ() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
