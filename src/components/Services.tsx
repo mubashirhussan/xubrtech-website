@@ -3,14 +3,36 @@ import { Code, Rocket, ShieldCheck, PenTool, BarChart3 } from "lucide-react";
 
 export default function Services() {
   const services = [
-    { title: "Product Development", icon: <Code size={44} strokeWidth={1} /> },
-    { title: "Digital Marketing", icon: <Rocket size={44} strokeWidth={1} /> },
+    {
+      title: "Product Development",
+      icon: <Code size={44} strokeWidth={1} />,
+      description:
+        "We help businesses build scalable products from ideation to launch.",
+    },
+    {
+      title: "Digital Marketing",
+      icon: <Rocket size={44} strokeWidth={1} />,
+      description:
+        "Our digital strategies boost brand visibility, engagement across all platforms.",
+    },
     {
       title: "Security System",
       icon: <ShieldCheck size={44} strokeWidth={1} />,
+      description:
+        "We provide advanced security solutions to protect your business from cyber threats.",
     },
-    { title: "UI/UX Designing", icon: <PenTool size={44} strokeWidth={1} /> },
-    { title: "Data Analysis", icon: <BarChart3 size={44} strokeWidth={1} /> },
+    {
+      title: "UI/UX Designing",
+      icon: <PenTool size={44} strokeWidth={1} />,
+      description:
+        "Crafting seamless and engaging user experiences for digital products and platforms.",
+    },
+    {
+      title: "Data Analysis",
+      icon: <BarChart3 size={44} strokeWidth={1} />,
+      description:
+        "Turning raw data into actionable insights to drive better business decisions.",
+    },
   ];
 
   return (
@@ -41,13 +63,18 @@ export default function Services() {
               </div>
 
               {/* Service Title */}
-              <h3 className="relative px-4 z-10 text-lg font-semibold text-white md:text-gray-900 md:group-hover:text-white">
-                {service.title}
+              <h3 className="relative px-4 z-10 text-lg font-semibold text-white md:text-gray-900 md:group-hover:text-white text-center">
+                {service.title.split(" ").map((word, index) => (
+                  <span key={index}>
+                    {word}
+                    {index !== service.title.split(" ").length - 1 && <br />}
+                  </span>
+                ))}
               </h3>
 
               {/* Description */}
               <p className="relative z-10 text-gray-300 text-sm mt-2 md:text-gray-600 md:group-hover:text-gray-300">
-                Providing solutions for tech businesses
+                {service.description}
               </p>
             </div>
           ))}

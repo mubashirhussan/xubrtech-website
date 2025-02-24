@@ -10,38 +10,38 @@ import "swiper/css/autoplay";
 const testimonials = [
   {
     name: "Sarah Albert",
-    role: "Designer",
+    role: "UI/UX Designer",
     review:
-      "Lorem ipsum is simply free text dolor not sit amet, notted adipisicing elit sed do eiusmod incididunt labore et dolore text.",
+      "Working with this team was an absolute pleasure! Their attention to detail and design aesthetics truly set them apart. Highly recommend their expertise!",
     image: "https://randomuser.me/api/portraits/women/44.jpg",
   },
   {
     name: "John Doe",
-    role: "Developer",
+    role: "Software Engineer",
     review:
-      "Lorem ipsum is simply free text dolor not sit amet, notted adipisicing elit sed do eiusmod incididunt labore et dolore text.",
+      "Exceptional service and top-notch development skills! They understood our requirements perfectly and delivered beyond expectations.",
     image: "https://randomuser.me/api/portraits/men/45.jpg",
   },
   {
     name: "Emily Clark",
-    role: "Marketer",
+    role: "Digital Marketer",
     review:
-      "Lorem ipsum is simply free text dolor not sit amet, notted adipisicing elit sed do eiusmod incididunt labore et dolore text.",
-    image: "https://randomuser.me/api/portraits/women/46.jpg",
+      "Their marketing strategies significantly boosted our engagement and sales. The insights and analytics provided were invaluable!",
+    image: "https://randomuser.me/api/portraits/men/46.jpg",
   },
   {
-    name: "Emily Clark",
-    role: "Marketer",
+    name: "Michael Brown",
+    role: "Project Manager",
     review:
-      "Lorem ipsum is simply free text dolor not sit amet, notted adipisicing elit sed do eiusmod incididunt labore et dolore text.",
-    image: "https://randomuser.me/api/portraits/women/46.jpg",
+      "An incredibly talented and professional team! They handled our project efficiently and delivered high-quality results on time.",
+    image: "https://randomuser.me/api/portraits/men/47.jpg",
   },
   {
-    name: "Emily Clark",
-    role: "Marketer",
+    name: "Sophia Martinez",
+    role: "Content Creator",
     review:
-      "Lorem ipsum is simply free text dolor not sit amet, notted adipisicing elit sed do eiusmod incididunt labore et dolore text.",
-    image: "https://randomuser.me/api/portraits/women/46.jpg",
+      "The creativity and originality in their work are outstanding! Every piece of content exceeded my expectations. I will definitely work with them again.",
+    image: "https://randomuser.me/api/portraits/men/48.jpg",
   },
 ];
 
