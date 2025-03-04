@@ -20,15 +20,28 @@ export default async function HomeRoute() {
   // const blocks = data?.blocks || [];
   // console.log(data);
   return (
+    // <div className="text-center">
+    //   <AdComponent />
+    //   <Navbar />
+    //   <HeroSection />
+    //   <Services />
+    //   <AboutCompany />
+    //   <Testimonials />
+    //   <ContactAndFAQ />
+    //   <NewsSection />
+    //   <Footer />
+    // </div>
     <div className="text-center">
-      <AdComponent />
       <Navbar />
+      <AdComponent /> {/* Ad after Navbar for better visibility */}
       <HeroSection />
       <Services />
+      <AdComponent /> {/* Ad between sections */}
       <AboutCompany />
       <Testimonials />
       <ContactAndFAQ />
       <NewsSection />
+      <AdComponent /> {/* Ad before Footer */}
       <Footer />
     </div>
   );
