@@ -9,6 +9,7 @@ import ContactAndFAQ from "@/components/ContactAndFAQ";
 import Testimonials from "@/components/Testimonials";
 import AboutCompany from "@/components/AboutCompany";
 import NewsSection from "@/components/Blogs";
+import AdComponent from "@/components/AdComponent";
 // async function loader() {
 //   const data = await getHomePage();
 //   if (!data) notFound();
@@ -20,6 +21,7 @@ export default async function HomeRoute() {
   // console.log(data);
   return (
     <div className="text-center">
+      <AdComponent />
       <Navbar />
       <HeroSection />
       <Services />
