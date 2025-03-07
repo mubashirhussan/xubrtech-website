@@ -25,7 +25,7 @@ interface Author {
 interface Post {
   title?: string;
   name?: string;
-  categories?: Category[];
+  categories?: string[];
   authorImage?: SanityImageSource;
   body?: any; // PortableText content can vary, so `any` or a more specific type can be used
 }
