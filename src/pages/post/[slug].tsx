@@ -10,6 +10,7 @@ import { PortableText, PortableTextReactComponents } from "@portabletext/react";
 import client from "../../../client";
 import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import { GetStaticPaths, GetStaticProps } from "next";
+import { useRouter } from "next/router";
 
 // 📌 Define Post Data Interfaces
 interface Category {
@@ -61,6 +62,12 @@ interface PostProps {
 
 // 📌 Post Component
 const Post = ({ post }: PostProps) => {
+  const router = useRouter();
+
+  if (router.isFallback) {
+    return <p>Loading...</p>; // 👈 Ye fallback page show karega
+  }
+
   const {
     title = "Missing title",
     name = "Missing name",
@@ -120,10 +127,12 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const { slug = "" } = context.params as { slug: string };
   const post = await client.fetch(query, { slug });
 
+  if (!post) {
+    return { notFound: true }; // 👈 404 return karega agar post nahi mile
+  }
+
   return {
-    props: {
-      post,
-    },
+    props: { post },
   };
 };
 
