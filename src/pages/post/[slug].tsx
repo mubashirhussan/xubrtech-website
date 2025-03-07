@@ -83,8 +83,8 @@ const Post = ({ post }: PostProps) => {
       {categories && (
         <ul>
           Posted in:
-          {categories.map((category) => (
-            <li key={category.title}>{category.title}</li>
+          {categories.map((category, index) => (
+            <li key={index}>{category}</li>
           ))}
         </ul>
       )}
@@ -103,6 +103,7 @@ const Post = ({ post }: PostProps) => {
 
 // 📌 GROQ Query to Fetch Data
 const query = groq`*[_type == "post" && slug.current == $slug][0]{
+...,
   title,
   "name": author->name,
   "categories": categories[]->title,
@@ -126,7 +127,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async (context) => {
   const { slug = "" } = context.params as { slug: string };
   const post = await client.fetch(query, { slug });
-
+  console.log("post", post);
   if (!post) {
     return { notFound: true }; // 👈 404 return karega agar post nahi mile
   }
