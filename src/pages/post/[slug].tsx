@@ -134,7 +134,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   return {
     props: { post },
-    revalidate: 60, // ⏳ 60 seconds baad automatic update ho jayega
+    // revalidate: 60,
   };
 };
 
