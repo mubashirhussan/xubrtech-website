@@ -16,6 +16,30 @@
     --theme-color3: #f4f5f8;
   }
 }
+/* portableText.css */
+.portable-text h1 {
+  @apply text-4xl font-bold mt-6 mb-4;
+}
+
+.portable-text h2 {
+  @apply text-3xl font-semibold mt-5 mb-3;
+}
+
+.portable-text h3 {
+  @apply text-2xl font-medium mt-4 mb-2;
+}
+
+.portable-text p {
+  @apply text-lg leading-7;
+}
+
+.portable-text ul {
+  @apply list-disc ml-5;
+}
+
+.portable-text li {
+  @apply mb-2;
+}
 
 body {
   color: var(--foreground);

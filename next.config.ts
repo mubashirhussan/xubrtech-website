@@ -9,7 +9,7 @@ const nextConfig: NextConfig = {
   images: {
     // Add your image hostname here
 
-    domains: ["randomuser.me", "example.com"],
+    domains: ["randomuser.me", "example.com", "cdn.sanity.io"],
     remotePatterns: [
       {
         protocol: "http",
