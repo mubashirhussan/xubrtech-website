@@ -35,3 +35,8 @@ export interface Props {
     language: string;
   };
 }
+export type PageProps = {
+  params: {
+    slug: string;
+  };
+};

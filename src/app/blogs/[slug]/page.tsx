@@ -1,24 +1,22 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-// import { PortableText } from "@portabletext/react";
 import imageUrlBuilder from "@sanity/image-url";
 import { notFound } from "next/navigation";
 import client from "../../../../client";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { tomorrowNightBright } from "react-syntax-highlighter/dist/cjs/styles/hljs";
-import { Props } from "@/types/index";
-import Image from "next/image";
 import { PortableText } from "@portabletext/react";
+import Image from "next/image";
 
-// Function to generate image URLs
-function urlFor(source: any) {
-  return imageUrlBuilder(client).image(source);
-}
+// ✅ Generate static params at build time
+export const generateStaticParams = async () => {
+  const posts = await client.fetch(`*[_type == "post"]{slug}`);
+  return posts.map(({ slug }: { slug: { current: string } }) => ({
+    slug: String(slug.current),
+  }));
+};
 
-// ✅ Fetch all slugs at build time
-export async function generateStaticParams() {
-  const posts = await client.fetch(`*[_type == "blog"]{slug}`);
-  return posts.map((post: any) => ({ slug: post.slug.current }));
-}
+// ✅ Define params type
+export type paramsType = Promise<{ slug: string }>;
 
 // ✅ Fetch blog post data
 const getBlogPost = async (slug: string) => {
@@ -34,55 +32,54 @@ const getBlogPost = async (slug: string) => {
   );
 };
 
-const CodeBlock = ({ value }: Props) => {
-  const { code, language } = value;
-  return (
-    <SyntaxHighlighter
-      showLineNumbers={true}
-      showInlineLineNumbers={true}
-      language={language}
-      style={tomorrowNightBright}
-      customStyle={{
-        padding: "1em",
-        marginBottom: "2em",
-      }}
-    >
-      {code}
-    </SyntaxHighlighter>
-  );
-};
+// ✅ Code Block Component for Syntax Highlighting
+const CodeBlock = ({
+  value,
+}: {
+  value: { code: string; language: string };
+}) => (
+  <SyntaxHighlighter
+    showLineNumbers={true}
+    showInlineLineNumbers={true}
+    language={value.language}
+    style={tomorrowNightBright}
+    customStyle={{
+      padding: "1em",
+      marginBottom: "2em",
+    }}
+  >
+    {value.code}
+  </SyntaxHighlighter>
+);
+
+// ✅ PortableText components
 const ptComponents = {
   types: {
     image: ({ value }: any) => {
-      if (!value?.asset?._ref) {
-        return null;
-      }
+      if (!value?.asset?._ref) return null;
       return (
         <Image
           alt={value.alt || " "}
           loading="lazy"
-          src={urlFor(value)
-            .width(320)
-            .height(240)
-            .fit("max")
-            .auto("format")
-            .url()}
+          src={urlFor(value).width(320).height(240).fit("max").url()}
+          width={320}
+          height={240}
         />
       );
     },
-    codeBlock: ({ value }: any) => {
-      return <CodeBlock value={value} />;
-    },
+    codeBlock: ({ value }: any) => <CodeBlock value={value} />,
   },
 };
 
-// ✅ Page Component
-export default async function BlogDetailPage({
-  params,
-}: {
-  params: { slug: string };
-}) {
-  const { slug } = await params;
+// ✅ Function to generate image URLs
+function urlFor(source: any) {
+  return imageUrlBuilder(client).image(source);
+}
+
+// ✅ Blog Detail Page Component
+export default async function BlogDetailPage(props: { params: paramsType }) {
+  const { slug } = await props.params;
+
   if (!slug) {
     notFound();
   }
@@ -99,6 +96,7 @@ export default async function BlogDetailPage({
       <article>
         <h1 className="text-3xl font-bold">{title}</h1>
         <span className="text-gray-600">By {name}</span>
+
         {categories && (
           <ul className="mt-2">
             <strong>Posted in:</strong>
@@ -109,17 +107,18 @@ export default async function BlogDetailPage({
             ))}
           </ul>
         )}
+
         {authorImage && (
           <div className="mt-4 flex justify-center">
             <Image
               src={urlFor(authorImage).width(250).url()}
               alt={`${name}'s picture`}
-              className=""
               width={250}
               height={250}
             />
           </div>
         )}
+
         <div className="portable-text mt-6">
           <PortableText value={body} components={ptComponents} />
         </div>
