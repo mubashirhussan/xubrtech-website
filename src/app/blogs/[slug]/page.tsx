@@ -6,6 +6,7 @@ import SyntaxHighlighter from "react-syntax-highlighter";
 import { tomorrowNightBright } from "react-syntax-highlighter/dist/cjs/styles/hljs";
 import { PortableText } from "@portabletext/react";
 import Image from "next/image";
+// import { Metadata } from "next";
 
 // ✅ Generate static params at build time
 export const generateStaticParams = async () => {
@@ -70,6 +71,40 @@ const ptComponents = {
     codeBlock: ({ value }: any) => <CodeBlock value={value} />,
   },
 };
+// ✅ Generate Metadata dynamically
+export async function generateMetadata(props: { params: paramsType }) {
+  const { slug } = await props.params;
+  const post = await getBlogPost(slug);
+
+  if (!post) {
+    return {
+      title: "Blog Not Found - Xubrtech IT Solutions",
+      description: "This blog post does not exist.",
+    };
+  }
+
+  return {
+    title: `${post.title} | Xubrtech IT Solutions`,
+    description:
+      post.body[0]?.children?.[0]?.text || "Read our latest blog post.",
+    openGraph: {
+      title: post.title,
+      description:
+        post.body[0]?.children?.[0]?.text || "Read our latest blog post.",
+      url: `https://yourdomain.com/blog/${slug}`,
+      siteName: "Xubrtech IT Solutions",
+      images: [
+        {
+          url: post.image || "https://yourdomain.com/default-thumbnail.jpg",
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
+      type: "article",
+    },
+  };
+}
 
 // ✅ Function to generate image URLs
 function urlFor(source: any) {
