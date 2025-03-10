@@ -4,6 +4,7 @@ import { ArrowRight, Calendar, MessageCircle, User } from "lucide-react";
 import { getAllPosts } from "@/sanity/sanity.query";
 import client from "../../client";
 import imageUrlBuilder from "@sanity/image-url";
+import Link from "next/link";
 
 const NewsSection = async () => {
   const blogs = await getAllPosts();
@@ -57,9 +58,11 @@ const NewsSection = async () => {
                   </span>
                 </div>
 
-                <h3 className="text-2xl text-left font-semibold text-gray-900 mt-3 hover:text-[#ffaa17] transition duration-300 cursor-pointer">
-                  {blog.title}
-                </h3>
+                <Link href={`/blogs/${blog.slug}`}>
+                  <h2 className="text-2xl font-semibold text-gray-800 hover:text-[#ffaa17] transition">
+                    {blog.title}
+                  </h2>
+                </Link>
 
                 <p className="text-gray-600 mt-2">
                   {blog.excerpt?.substring(0, 120)}...
