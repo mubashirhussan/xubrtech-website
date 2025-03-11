@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 export default async function BlogsPage() {
   return (
     <>
-      <NewsSection />
+      <NewsSection limit={false} />
     </>
   );
 }

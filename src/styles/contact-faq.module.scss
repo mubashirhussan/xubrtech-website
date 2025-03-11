@@ -25,3 +25,21 @@
     }
   }
 }
+/* Add this to your global styles or component styles */
+.react-tel-input .form-control {
+  width: -webkit-fill-available !important;
+  height: auto !important;
+  padding: 12px !important;
+  background: transparent !important;
+  border: none !important;
+  // border: 1px solid rgba(255, 255, 255, 0.15);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  margin-left: 35px !important;
+}
+
+.react-tel-input .form-control:focus {
+  border-color: #ffaa17 !important; /* Add focus color */
+  outline: none;
+  box-shadow: 0 0 5px #ffaa17; /* Optional glow effect */
+}

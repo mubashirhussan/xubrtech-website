@@ -1,10 +1,54 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import { useState } from "react";
 import { Minus, Plus } from "lucide-react";
-
+import "react-phone-input-2/lib/style.css";
+import PhoneInput from "react-phone-input-2";
+import toast, { Toaster } from "react-hot-toast";
 export default function ContactAndFAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+  console.log("formData", formData);
+  const [loading, setLoading] = useState(false);
 
+  const handleChange = (e: any) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handlePhoneChange = (phone: any) => {
+    setFormData({ ...formData, phone });
+  };
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+    setLoading(true);
+    debugger;
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      debugger;
+      const data = await response.json();
+      if (response.ok) {
+        toast.success("Email sent successfully!");
+        setFormData({ name: "", email: "", phone: "", message: "" });
+      } else {
+        toast.error(data.error || "Something went wrong.");
+      }
+    } catch (error: any) {
+      const errorMessage =
+        error?.message || "Something went wrong. Please try again!";
+      toast.error(errorMessage);
+    }
+
+    setLoading(false);
+  };
   const faqs = [
     {
       question: "Is my technology allowed on tech?",
@@ -38,7 +82,8 @@ export default function ContactAndFAQ() {
         {/* Grid Layout for Responsive Design */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
           {/* Contact Form */}
-          <div className="flex items-start justify-center  ">
+          <div className="flex items-start justify-center">
+            <Toaster position="top-right" reverseOrder={false} />
             <div className="w-full bg-[#2c2e33] p-6 sm:p-10 lg:p-[55px] border-t-[6px] border-[#ffaa17] text-left">
               <h4 className="text-[12px] text-[#ffaa17] font-bold uppercase tracking-[0.1em] mb-[2px]">
                 Contact Us
@@ -46,36 +91,54 @@ export default function ContactAndFAQ() {
               <h2 className="text-2xl sm:text-3xl lg:text-[34px] text-white font-bold mb-5">
                 Write Email
               </h2>
-              <form className="space-y-4 sm:space-y-5">
+
+              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
                 <input
                   className="w-full p-3 bg-transparent border border-[rgba(255,255,255,0.15)] text-white focus:outline-none focus:border-[#ffaa17]"
                   type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
                   placeholder="Your Name"
+                  required
                 />
                 <input
                   className="w-full p-3 bg-transparent border border-[rgba(255,255,255,0.15)] text-white focus:outline-none focus:border-[#ffaa17]"
                   type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
                   placeholder="Email Address"
+                  required
                 />
-                <input
-                  className="w-full p-3 bg-transparent border border-[rgba(255,255,255,0.15)] text-white focus:outline-none focus:border-[#ffaa17]"
-                  type="tel"
-                  placeholder="Phone Number"
+                <PhoneInput
+                  country={"us"}
+                  placeholder="Enter phone number"
+                  value={formData.phone}
+                  onChange={handlePhoneChange}
+                  inputClass="form-control" // Ensures focus styles apply
                 />
                 <textarea
                   className="w-full p-3 bg-transparent border border-[rgba(255,255,255,0.15)] text-white focus:outline-none focus:border-[#ffaa17]"
                   rows={4}
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
                   placeholder="Write a Message"
-                ></textarea>
-                <button className="relative py-3 px-10 text-[12px] leading-[24px] font-bold tracking-[0.1em] uppercase inline-block text-black bg-[#ffaa17] hover:bg-yellow-600 overflow-hidden transition-all duration-500 ease-in-out before:absolute before:top-[-100%] before:left-0 before:w-full before:h-full before:bg-[#222429] before:transition-all before:duration-500 before:ease-in-out hover:text-white hover:before:top-0">
+                  required
+                />
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="relative py-3 px-10 text-[12px] leading-[24px] z-10 font-bold tracking-[0.1em] uppercase inline-block text-black bg-[#ffaa17] hover:bg-yellow-600 overflow-hidden transition-all duration-500 ease-in-out hover:text-white"
+                >
                   <span className="relative z-10 transition-colors duration-300 ease-in-out">
-                    SEND A MESSAGE
+                    {loading ? "Sending..." : "SEND A MESSAGE"}
                   </span>
                 </button>
               </form>
             </div>
           </div>
-
           {/* FAQ Section */}
           <div className="text-left ">
             <h3 className="text-lg sm:text-xl font-semibold text-[#ffaa17] question-answer-heading">

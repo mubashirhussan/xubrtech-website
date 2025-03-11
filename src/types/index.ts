@@ -40,3 +40,6 @@ export type PageProps = {
     slug: string;
   };
 };
+export interface NewsSectionProps {
+  limit?: boolean; // Pass true for home page, false for blogs page
+}

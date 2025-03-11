@@ -4,7 +4,7 @@ import client from "../../client";
 // ✅ Query to get the list of all blog posts
 export const getAllPosts = async () => {
   return await client.fetch(
-    groq`*[_type == "post"] | order(_createdAt desc) {
+    groq`*[_type == "post"] | order(_createdAt asc) {
       _id,
       title,
       "slug": slug.current,

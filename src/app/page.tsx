@@ -39,7 +39,7 @@ export default async function HomeRoute() {
       <AboutCompany />
       <Testimonials />
       <ContactAndFAQ />
-      <NewsSection />
+      <NewsSection limit={true} />
       {/* <AdComponent />  */}
     </div>
   );

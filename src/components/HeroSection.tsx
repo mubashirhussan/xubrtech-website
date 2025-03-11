@@ -76,7 +76,7 @@ const HeroSection = () => {
         {/* CTA Buttons */}
         <div className="mt-6 flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-4">
           <Link
-            href={"/"}
+            href={"/about"}
             target={"_self"}
             className="relative inline-block px-[50px] py-[15px] text-[13px] leading-[24px] font-bold tracking-[0.1em] uppercase text-[#222429] bg-[#ffaa17] overflow-hidden transition-all duration-500 ease-in-out 
     before:top-[-100%] before:left-0 before:w-full before:h-full before:bg-[#222429] before:transition-all before:duration-500 before:ease-in-out hover:text-white hover:before:top-0 

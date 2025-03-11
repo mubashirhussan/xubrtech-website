@@ -22,9 +22,9 @@ const footerData = {
     { name: "instagram", url: "https://instagram.com" },
   ],
   exploreLinks: [
-    { name: "About Company", url: "/about-company" },
+    { name: "About Company", url: "/about" },
     { name: "Meet the Team", url: "/meet-the-team" },
-    { name: "News & Media", url: "/news-media" },
+    { name: "News & Media", url: "/blogs" },
     { name: "Our Projects", url: "/our-projects" },
     { name: "Contact", url: "/contact" },
   ],
