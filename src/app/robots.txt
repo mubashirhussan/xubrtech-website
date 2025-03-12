@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /_next/data/*
+
+Sitemap: https://www.xubrtech.com/sitemap.xml
