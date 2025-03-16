@@ -13,38 +13,79 @@ export default function ContactAndFAQ() {
     phone: "",
     message: "",
   });
-  console.log("formData", formData);
+
+  const [errors, setErrors] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+
   const [loading, setLoading] = useState(false);
+
+  const validateForm = () => {
+    let valid = true;
+    const newErrors = { name: "", email: "", phone: "", message: "" };
+
+    if (!formData.name.trim()) {
+      newErrors.name = "Name is required.";
+      valid = false;
+    }
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required.";
+      valid = false;
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = "Enter a valid email address.";
+      valid = false;
+    }
+    if (!formData.phone.trim()) {
+      newErrors.phone = "Phone number is required.";
+      valid = false;
+    }
+    if (!formData.message.trim()) {
+      newErrors.message = "Message cannot be empty.";
+      valid = false;
+    }
+
+    setErrors(newErrors);
+    return valid;
+  };
 
   const handleChange = (e: any) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+    setErrors({ ...errors, [e.target.name]: "" }); // Clear error when typing
   };
 
-  const handlePhoneChange = (phone: any) => {
+  const handlePhoneChange = (phone: string) => {
     setFormData({ ...formData, phone });
+    setErrors({ ...errors, phone: "" }); // Clear error on input
   };
+
   const handleSubmit = async (e: any) => {
     e.preventDefault();
+
+    if (!validateForm()) {
+      return; // Stop submission if validation fails
+    }
+
     setLoading(true);
-    debugger;
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
-      debugger;
+
       const data = await response.json();
       if (response.ok) {
         toast.success("Email sent successfully!");
         setFormData({ name: "", email: "", phone: "", message: "" });
+        setErrors({ name: "", email: "", phone: "", message: "" }); // Reset errors
       } else {
         toast.error(data.error || "Something went wrong.");
       }
     } catch (error: any) {
-      const errorMessage =
-        error?.message || "Something went wrong. Please try again!";
-      toast.error(errorMessage);
+      toast.error(error?.message || "Something went wrong. Please try again!");
     }
 
     setLoading(false);
@@ -93,40 +134,61 @@ export default function ContactAndFAQ() {
               </h2>
 
               <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
-                <input
-                  className="w-full p-3 bg-transparent border border-[rgba(255,255,255,0.15)] text-white focus:outline-none focus:border-[#ffaa17]"
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  placeholder="Your Name"
-                  required
-                />
-                <input
-                  className="w-full p-3 bg-transparent border border-[rgba(255,255,255,0.15)] text-white focus:outline-none focus:border-[#ffaa17]"
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="Email Address"
-                  required
-                />
-                <PhoneInput
-                  country={"us"}
-                  placeholder="Enter phone number"
-                  value={formData.phone}
-                  onChange={handlePhoneChange}
-                  inputClass="form-control" // Ensures focus styles apply
-                />
-                <textarea
-                  className="w-full p-3 bg-transparent border border-[rgba(255,255,255,0.15)] text-white focus:outline-none focus:border-[#ffaa17]"
-                  rows={4}
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder="Write a Message"
-                  required
-                />
+                <div>
+                  <input
+                    className="w-full p-3 bg-transparent border border-[rgba(255,255,255,0.15)] text-white focus:outline-none focus:border-[#ffaa17]"
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="Your Name"
+                  />
+                  {errors.name && (
+                    <p className="text-red-500 text-sm">{errors.name}</p>
+                  )}
+                </div>
+
+                <div>
+                  <input
+                    className="w-full p-3 bg-transparent border border-[rgba(255,255,255,0.15)] text-white focus:outline-none focus:border-[#ffaa17]"
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="Email Address"
+                  />
+                  {errors.email && (
+                    <p className="text-red-500 text-sm">{errors.email}</p>
+                  )}
+                </div>
+
+                <div>
+                  <PhoneInput
+                    country={"us"}
+                    placeholder="Enter phone number"
+                    value={formData.phone}
+                    onChange={handlePhoneChange}
+                    inputClass="form-control"
+                  />
+                  {errors.phone && (
+                    <p className="text-red-500 text-sm">{errors.phone}</p>
+                  )}
+                </div>
+
+                <div>
+                  <textarea
+                    className="w-full p-3 bg-transparent border border-[rgba(255,255,255,0.15)] text-white focus:outline-none focus:border-[#ffaa17]"
+                    rows={4}
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    placeholder="Write a Message"
+                  />
+                  {errors.message && (
+                    <p className="text-red-500 text-sm">{errors.message}</p>
+                  )}
+                </div>
+
                 <button
                   type="submit"
                   disabled={loading}

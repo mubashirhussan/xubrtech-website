@@ -6,7 +6,6 @@ import client from "../../../../client";
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req: Request) {
-  debugger;
   try {
     const { name, email, phone, message } = await req.json();
     console.log("Received Data:", { name, email, phone, message });
@@ -19,7 +18,7 @@ export async function POST(req: Request) {
       phone,
       message,
     });
-    console.log("Sanity Response:", response);
+    // console.log("Sanity Response:", response);
     // ✅ 2. Send Email using Resend
     const emailResponse = await resend.emails.send({
       from: "xubrtech@gmail.com", // Must be a verified domain

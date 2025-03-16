@@ -35,11 +35,11 @@ const NewsSection = async ({ limit = false }: NewsSectionProps) => {
               {blog.mainImage && (
                 <div className="relative">
                   <Image
-                    src={urlFor(blog.mainImage).width(400).height(300).url()}
+                    src={urlFor(blog.mainImage).width(400).height(270).url()}
                     alt={blog.title}
                     className="w-full object-cover"
                     width={400}
-                    height={300}
+                    height={270}
                   />
                   <div className="absolute top-3 right-3 bg-[#ffaa17] text-white text-xs font-bold px-3 py-2 rounded">
                     {new Date(blog.publishedAt).getDate()} <br />
